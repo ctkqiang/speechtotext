@@ -11,12 +11,14 @@
         android:layout_width="95dp"
         android:layout_height="84dp"
         android:layout_marginStart="158dp"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="35dp"
         android:background="@drawable/voice_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UnusedAttribute" />
 
     <TextView
         android:id="@+id/output"
@@ -24,6 +26,7 @@
         android:layout_height="395dp"
         android:layout_marginTop="34dp"
         android:textAlignment="center"
+        android:background="@color/colot"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -26,7 +26,7 @@ import java.util.Locale;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getName();
+    private static final String TAG = "MainActivity";
     private final int REQ_CODE = 0x64;
     private Button VOICE;
     private TextView OUTPUT;
@@ -42,18 +42,18 @@ public class MainActivity extends AppCompatActivity {
         VOICE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.w(TAG, "DEBUG" + "Voice button clicked.");
+                Log.w(TAG,  "Voice button clicked.");
                 Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                         RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Need to speak");
-                Log.w(TAG, "DEBUG" + "\"Need to speak\"");
+                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say Something \n and Will appear to the screen");
+                Log.w(TAG,  "\"Need to speak\"");
                 try {
                     startActivityForResult(intent, REQ_CODE);
                 } catch (ActivityNotFoundException a) {
                     Toaster("Sorry your device not supported");
-                    Log.w(TAG, "DEBUG" + "Sorry your device not supported");
+                    Log.w(TAG,"Sorry your device not supported");
                 }
             }
         });
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     OUTPUT.setText((CharSequence) result.get(0x0)); // (!= int)**
-                    Log.w(TAG, "DEBUG" + "Voice ====> Text" + "\t {OK}");
+                    Log.w(TAG,  "Voice ====> Text" + "\t {OK}");
                 }
             }
         }
