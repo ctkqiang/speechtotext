@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(intent, REQ_CODE);
                 } catch (ActivityNotFoundException a) {
                     Toaster("Sorry your device not supported");
-                    Log.w(TAG,"Sorry your device not supported");
+                    Log.w(TAG,"Sorry your device not supported" + a);
                 }
             }
         });
